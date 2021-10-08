@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:extended_image/extended_image.dart';
-// import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:extended_image/extended_image.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,10 +75,22 @@ class ImageExamle extends StatelessWidget {
             title: Text("Webp from package in assets: "),
           ),
         ),
-        // Image.asset(
-        //   "animated_images/animated_flutter_stickers.webp",
-        //   package: "flutter_gallery_assets",
-        // )
+        Image.asset(
+          "assets/meo.webp",
+          // package: "flutter_gallery_assets",
+        ),
+        const Material(
+          child: ListTile(
+            title: Text("ExtendedImage"),
+            subtitle: Text(
+                "provides more functionalities like image caching and shape and borderRadius"),
+          ),
+        ),
+        ExtendedImage.network(
+          "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1895&q=80%27",
+          shape: BoxShape.rectangle,
+          borderRadius: const BorderRadius.all(Radius.circular(120)),
+        )
       ],
     );
   }
